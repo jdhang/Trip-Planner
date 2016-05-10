@@ -25,9 +25,7 @@ app.use(express.static(path.join(__dirname, './public')))
 // server logging
 app.use(logger('dev'))
 
-app.use('/', function (req, res, next) {
-  res.send('Hello world!')
-})
+app.use(router)
 
 // error catching
 // catch 404, no routes

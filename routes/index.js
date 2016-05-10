@@ -1,3 +1,4 @@
+const Promise = require('sequelize').Promise
 const router = require('express').Router()
 const models = require('../models')
 const Place = models.Place
@@ -8,19 +9,12 @@ const Hotel = models.Hotel
 module.exports = router
 
 router.get('/', function (req, res, next) {
-  var hotels
-  var restaurants
-  var activities
-  Hotel.findAll()
-  .then(function (hotelsArr) {
-    hotels = hotelsArr
-    return Restaurant.findAll()
-  })
-  .then(function (restaurantsArr) {
-    restaurants = restaurantsArr
-    return Activity.findAll()
-  })
-  .then(function (activities) {
+  Promise.all([
+    Hotel.findAll(),
+    Restaurant.findAll(),
+    Activity.findAll()
+  ])
+  .spread(function (hotels, restaurants, activities) {
     res.render('index', {
       hotels,
       restaurants,

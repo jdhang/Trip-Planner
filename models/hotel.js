@@ -32,6 +32,29 @@ module.exports = function (db, Sequelize) {
         this.setDataValue('amenities', amenities)
       }
     }
+  }, {
+    classMethods: {
+      findById: function (id) {
+        return this.findOne({ where: { id: id } })
+      },
+      findByName: function (name) {
+        return this.findOne({ where: { name: name } })
+      }
+    },
+    instanceMethods: {
+      findSimilar: function (amenities) {
+        return Hotel.findAll({
+          where: {
+            id: {
+              $ne: this.id
+            },
+            amenities: {
+              $overlap: this.amenities.split(', ')
+            }
+          }
+        })
+      }
+    }
   })
 
   return Hotel

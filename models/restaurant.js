@@ -33,6 +33,39 @@ module.exports = function (db, Sequelize) {
         }
       }
     }
+  }, {
+    classMethods: {
+      findById: function (id) {
+        return this.findOne({ where: { id: id } })
+      },
+      findByName: function (name) {
+        return this.findOne({ where: { name: name } })
+      }
+    },
+    instanceMethods: {
+      findSamePriceRange: function () {
+        return Restaurant.findAll({
+          where: {
+            id: {
+              $ne: this.id
+            },
+            price: this.price
+          }
+        })
+      },
+      findSimilarCuisine: function () {
+        return Restaurant.findAll({
+          where: {
+            id: {
+              $ne: this.id
+            },
+            cuisine: {
+              $contains: this.cuisine.split(', ')
+            }
+          }
+        })
+      }
+    }
   })
 
   return Restaurant

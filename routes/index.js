@@ -8,11 +8,11 @@ const Hotel = models.Hotel
 
 module.exports = router
 
-router.get('/', function (req, res, next) {
-  res.render('index')
-})
+// router.get('/', function (req, res, next) {
+//   res.render('index')
+// })
 
-router.get('/search', function (req, res, next) {
+router.get('/', function (req, res, next) {
   Promise.all([
     Hotel.findAll(),
     Restaurant.findAll(),
@@ -24,6 +24,30 @@ router.get('/search', function (req, res, next) {
       restaurants,
       activities
     })
+  })
+  .catch(next)
+})
+
+router.post('/addHotel', function (req, res, next) {
+  Hotel.findById(req.body.hotelId)
+  .then(function (hotel) {
+    res.json(hotel)
+  })
+  .catch(next)
+})
+
+router.post('/addRestaurant', function (req, res, next) {
+  Restaurant.findById(req.body.restaurantId)
+  .then(function (restaurant) {
+    res.json(restaurant)
+  })
+  .catch(next)
+})
+
+router.post('/addActivity', function (req, res, next) {
+  Activity.findById(req.body.activityId)
+  .then(function (activity) {
+    res.json(activity)
   })
   .catch(next)
 })

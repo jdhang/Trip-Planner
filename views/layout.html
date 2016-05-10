@@ -74,27 +74,43 @@
     <div class="col-sm-4">
       <div class="panel panel-default">
         <div class="panel-body" id="lookup">
-          <div class="lookupHeader">Hotels</div>
-          <select class="lookupHeader" class="dropped">
-            <option value="placeholder">Placeholder</option>
-            <option value="placeholder">Placeholder</option>
-            <option value="placeholder">Placeholder</option>
-          </select>
-          <button class="plusBtn">+</button>
-          <div class="lookupHeader">Restaurants</div>
-          <select class="lookupHeader" class="dropped">
-            <option value="placeholder">Placeholder</option>
-            <option value="placeholder">Placeholder</option>
-            <option value="placeholder">Placeholder</option>
-          </select>
-          <button class="plusBtn">+</button>
-          <div class="lookupHeader">Activities</div>
-          <select class="lookupHeader" class="dropped">
-            <option value="placeholder">Placeholder</option>
-            <option value="placeholder">Placeholder</option>
-            <option value="placeholder">Placeholder</option>
-          </select>
-          <button class="plusBtn">+</button>
+
+          <form role="form" action="/addHotel" method="POST">
+            <div class="form-group">
+              <label class="lookupHeader">Hotels</label>
+              <select name="hotel" class="lookupHeader" class="dropped">
+                {% for hotel in hotels %}
+                <option value="{{ hotel.id }}">{{ hotel.name }}</option>
+                {% endfor %}
+              </select>
+              <button type="submit" class="plusBtn">+</button>
+            </div>
+          </form>
+
+          <form role="form" action="/addRestaurant" method="POST">
+            <div class="form-group">
+              <label class="lookupHeader">Restaurants</label>
+              <select name="restaurant" class="lookupHeader" class="dropped">
+                {% for restaurant in restaurants %}
+                <option value="{{ restaurant.id }}">{{ restaurant.name }}</option>
+                {% endfor %}
+              </select>
+              <button type="submit" class="plusBtn">+</button>
+            </div>
+          </form>
+
+          <form role="form" action="/addActivity" method="POST">
+            <div class="form-group">
+              <label class="lookupHeader">Activities</label>
+              <select name="activity" class="lookupHeader" class="dropped">
+                {% for activity in activities %}
+                <option value="{{ activity.id }}">{{ activity.name }}</option>
+                {% endfor %}
+              </select>
+              <button type="submit" class="plusBtn">+</button>
+            </div>
+          </form>
+
         </div>
       </div>
       <div class="panel panel-default" id="dateShower">
@@ -102,12 +118,12 @@
         <button class="redBtnOne">x</button>
       </div>
       <div class="panel panel-default" id="dateSelector">
-        <button class="dateBtn">1</button>
-        <button class="dateBtn">2</button>
-        <button class="dateBtn">3</button>
-        <button class="dateBtn">+</button>
-      </div>
-      <div class="panel panel-default" id ="bottomPanel">
+        <div class="panel-heading">
+          <button class="dateBtn">1</button>
+          <button class="dateBtn">2</button>
+          <button class="dateBtn">3</button>
+          <button class="dateBtn">+</button>
+        </div>
         <div class="panel-body">
           <div class="lookupHeader">Hotels</div>
           <div class="lookupHeaderr">Andaz Wall Street</div>

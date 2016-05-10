@@ -1,10 +1,11 @@
 {% extends 'layout2.html' %}
 
 {% block content %}
+
+<div id="map-canvas"></div>
+
 <div class="row">
   <div class="col-lg-7">
-    <br><br>
-    <img src="http://placehold.it/1200x1000" class="img-responsive" />
   </div>
 
   <div class="col-lg-5">
@@ -15,18 +16,28 @@
 
         <div class="row">
 
-          <div class="col-lg-12 form-group">
-            <label for="hotels">Hotels</label>
-            <select class="form-control" name="hotels">
-            {% for hotel in hotels %}
-              <option value="{{ hotel.id }}">{{ hotel.name }}</option>
-            {% endfor %}
-            </select>
+          <div class="col-lg-12">
+            <form role="form" action="/addHotel" method="POST">
+              <label for="hotels">Hotels</label>
+              <div class="input-group">
+
+                <select class="form-control" name="hotelId">
+                {% for hotel in hotels %}
+                  <option value="{{ hotel.id }}">{{ hotel.name }}</option>
+                {% endfor %}
+                </select>
+
+                <div class="input-group-btn">
+                  <button type="submit" class="btn btn-primary">+</button>
+                </div>
+
+              </div>
+            </form>
           </div>
 
           <div class="col-lg-12 form-group">
             <label for="restaurants">Restaurants</label>
-            <select class='form-control' name="restaurants">
+            <select class='form-control' name="restaurantId">
             {% for restaurant in restaurants %}
               <option value="{{ restaurant.id }}">{{ restaurant.name }}</option>
             {% endfor %}
@@ -35,7 +46,7 @@
 
           <div class="col-lg-12 form-group">
             <label for="activities">Activities</label>
-            <select class='form-control' name="activities">
+            <select class='form-control' name="activityId">
             {% for activity in activities %}
               <option value="{{ activity.id }}">{{ activity.name }}</option>
             {% endfor %}

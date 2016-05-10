@@ -6,7 +6,7 @@ html, body {
 }
 
 body {
-  margin-top: 50px;
+  padding-top: 50px;
 }
 
 #map-canvas {
@@ -122,4 +122,8 @@ body {
 	background:brown;
 	border:none;
 	vertical-align: middle;
+}
+
+.form-control {
+  border-radius: 0px;
 }

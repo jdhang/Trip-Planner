@@ -5,13 +5,14 @@
   "main": "index.js",
   "scripts": {
     "build-css": "node-sass -w -r assets/stylesheets -o public/stylesheets",
-    "start": "nodemon -e html,js,css ./app.js"
+    "start": "nodemon -e html,js,css ./server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.15.1",
+    "bower": "^1.7.9",
     "express": "^4.13.4",
     "morgan": "^1.7.0",
     "pg": "^4.5.5",

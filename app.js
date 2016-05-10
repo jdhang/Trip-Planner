@@ -30,7 +30,16 @@ app.use('/', function (req, res, next) {
 })
 
 // error catching
+// catch 404, no routes
+app.use(function (req, res, next) {
+  let err = new Error('Not Found')
+  err.status = 404
+  next(err)
+})
+
+// handle all errors
 app.use(function (err, req, res, next) {
-  console.err(err.stack)
-  res.status(500).send(err.message)
+  res.status(err.status || 500)
+  console.error(err)
+  res.render('error', { err })
 })

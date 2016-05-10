@@ -8,6 +8,10 @@ const PORT = 3000;
 server.on('request', app)
 
 Promise.all([
+  models.Place.sync({}),
+  models.Hotel.sync({}),
+  models.Activity.sync({}),
+  models.Restaurant.sync({})
 ])
 .then(function () {
   server.listen(PORT, function () {

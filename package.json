@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build-css": "node-sass -w -r assets/stylesheets -o public/stylesheets",
     "start": "nodemon -e html,js,css ./app.js"
   },
   "keywords": [],
@@ -19,6 +20,9 @@
     "swig": "^1.4.2"
   },
   "devDependencies": {
+    "bootstrap": "^3.3.6",
+    "jquery": "^2.2.3",
+    "node-sass": "^3.7.0",
     "nodemon": "^1.9.2"
   }
 }

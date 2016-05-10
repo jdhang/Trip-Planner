@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Bootstrap core CSS -->
+    <link href="../assets/stylesheets/style.scss" rel="stylesheet">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCaI8oHm6wF4mZPFjGyK1rCjA3AInHCChg&sensor=true"></script>
+
+
+    <script>
+    function initialize_gmaps() {
+      // initialize new google maps LatLng object
+      var myLatlng = new google.maps.LatLng(40.705189,-74.009209);
+      // set the map options hash
+      var mapOptions = {
+          center: myLatlng,
+          zoom: 16,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+      };
+      // get the maps div's HTML obj
+      var map_canvas_obj = document.getElementById("map-canvas");
+      // initialize a new Google Map with the options
+      var map = new google.maps.Map(map_canvas_obj, mapOptions);
+      // Add the marker to the map
+      var marker = new google.maps.Marker({
+          position: myLatlng,
+          title:"Hello World!"
+      });
+      // Add the marker to the map by calling setMap()
+      marker.setMap(map);
+     }
+
+    $(document).ready(function() {
+        initialize_gmaps();
+    });
+    </script>
+
+
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-fixed-top navbar-inverse" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#nav-items">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/wiki">Trip Planner</a>
+        </div>
+        <div id="nav-items" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="/wiki/">Home</a></li>
+            <li><a href="/wiki/add">About</a></li>
+            <li><a href="/users">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  
+    <div id="map-canvas"></div>
+  
+  <div class="row" id="menubar">
+    <div class="col-sm-4">
+      <div class="panel panel-default">
+        <div class="panel-body" id="lookup">
+          <div class="lookupHeader">Hotels</div>
+          <select class="lookupHeader" class="dropped">
+            <option value="placeholder">Placeholder</option>
+            <option value="placeholder">Placeholder</option>
+            <option value="placeholder">Placeholder</option>
+          </select>
+          <button class="plusBtn">+</button>
+          <div class="lookupHeader">Restaurants</div>
+          <select class="lookupHeader" class="dropped">
+            <option value="placeholder">Placeholder</option>
+            <option value="placeholder">Placeholder</option>
+            <option value="placeholder">Placeholder</option>
+          </select>
+          <button class="plusBtn">+</button>
+          <div class="lookupHeader">Activities</div>
+          <select class="lookupHeader" class="dropped">
+            <option value="placeholder">Placeholder</option>
+            <option value="placeholder">Placeholder</option>
+            <option value="placeholder">Placeholder</option>
+          </select>
+          <button class="plusBtn">+</button>
+        </div>
+      </div>
+      <div class="panel panel-default" id="dateShower">
+        <div class="panel-body">Day 2</div>
+        <button class="redBtnOne">x</button>
+      </div>
+      <div class="panel panel-default" id="dateSelector">
+        <button class="dateBtn">1</button>
+        <button class="dateBtn">2</button>
+        <button class="dateBtn">3</button>
+        <button class="dateBtn">+</button>
+      </div>
+      <div class="panel panel-default" id ="bottomPanel">
+        <div class="panel-body">
+          <div class="lookupHeader">Hotels</div>
+          <div class="lookupHeaderr">Andaz Wall Street</div>
+          <button class="redBtn">x</button>
+          <div class="lookupHeader">Restaurants</div>
+          <div class="lookupHeaderr">Lenny's</div>
+          <button class="redBtn">x</button>
+          <div class="lookupHeaderr">Roti</div>
+          <button class="redBtn">x</button>
+          <div class="lookupHeader">Activities</div>
+          <div class="lookupHeaderr">Ground Zero</div>
+          <button class="redBtn">x</button>
+          <div class="lookupHeaderr">Suth Street Seaport</div>
+          <button class="redBtn">x</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  </body>
+</html>

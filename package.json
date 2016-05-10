@@ -4,7 +4,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build-css": "node-sass -w -r assets/stylesheets -o public/stylesheets",
     "start": "nodemon -e html,js,css ./server.js"
   },
   "keywords": [],
@@ -15,6 +14,7 @@
     "bower": "^1.7.9",
     "express": "^4.13.4",
     "morgan": "^1.7.0",
+    "node-sass-middleware": "^0.9.8",
     "pg": "^4.5.5",
     "pg-hstore": "^2.3.2",
     "sequelize": "^3.23.0",

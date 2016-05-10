@@ -1,3 +1,108 @@
+/*index css*/
+html, body {
+  width: 100%;
+  height: 100%; }
+
 body {
-  margin-top: 50px;
-}
+  margin-top: 50px; }
+
+#map-canvas {
+  width: 65%;
+  float: left;
+  height: 100%;
+  position: relative; }
+
+#menubar {
+  background-color: red;
+  height: 100%; }
+
+.panel {
+  margin-top: 10%;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto; }
+
+#bottomPanel {
+  margin-top: 0; }
+
+#dateShower {
+  margin-bottom: 3%;
+  width: 30%;
+  margin-left: auto;
+  margin-right: auto;
+  border: solid thin black;
+  display: block; }
+
+#dateShower .panel-body {
+  padding: 1%;
+  text-align: center;
+  float: left;
+  display: inline-block; }
+
+.lookupHeader {
+  margin: 2%;
+  width: 70%; }
+
+.dropped {
+  float: left;
+  display: inline-block; }
+
+.plusBtn {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  font-size: 10px;
+  color: white;
+  line-height: 10px;
+  text-align: center;
+  background: teal;
+  border: none;
+  vertical-align: middle; }
+
+.redBtn {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  font-size: 7px;
+  color: white;
+  line-height: 7px;
+  text-align: center;
+  background: red;
+  border: none;
+  margin-left: 5%; }
+
+.redBtnOne {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  font-size: 7px;
+  color: white;
+  line-height: 7px;
+  text-align: center;
+  background: red;
+  border: none;
+  vertical-align: 50%;
+  margin-left: 5%; }
+
+.lookupHeaderr {
+  margin: 2%;
+  width: 70%;
+  display: inline-block;
+  float: left;
+  font-size: 12px; }
+
+#dateSelector {
+  margin-bottom: 0;
+  padding: 2%; }
+
+.dateBtn {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  font-size: 15px;
+  color: white;
+  line-height: 15px;
+  text-align: center;
+  background: brown;
+  border: none;
+  vertical-align: middle; }

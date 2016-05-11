@@ -28,6 +28,54 @@ router.get('/', function (req, res, next) {
   .catch(next)
 })
 
+router.get('/hotels', function (req, res, next) {
+  Hotel.findAll({
+    include: [{
+      model: Place
+    }],
+    limit: 10
+  })
+  .then(function (hotels) {
+    res.render('hotels', {
+      hotel: hotels[0],
+      hotels
+    })
+  })
+  .catch(next)
+})
+
+router.get('/restaurants', function (req, res, next) {
+  Restaurant.findAll({
+    include: [{
+      model: Place
+    }],
+    limit: 10
+  })
+  .then(function (restaurants) {
+    res.render('restaurants', {
+      restaurant: restaurants[0],
+      restaurants
+    })
+  })
+  .catch(next)
+})
+
+router.get('/activities', function (req, res, next) {
+  Activity.findAll({
+    include: [{
+      model: Place
+    }],
+    limit: 10
+  })
+  .then(function (activities) {
+    res.render('activities', {
+      activity: activities[0],
+      activities
+    })
+  })
+  .catch(next)
+})
+
 router.post('/addHotel', function (req, res, next) {
   Hotel.findById(req.body.hotelId)
   .then(function (hotel) {

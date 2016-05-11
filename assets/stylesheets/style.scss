@@ -150,13 +150,16 @@ body {
 
 .navbar {
   background-color: $main_color;
-  border-bottom: 5px solid $fourth_color;
+  border-bottom: 5px solid $main_color;
 
   a, li > a {
     color: #FFF;
+    transition: all 0.3s ease-out;
 
     &:hover {
       background-color: darken($main_color, 10%);
+      box-shadow: 0 5px $fourth_color;
+      transition: all 0.4s ease-out;
     }
   }
 }

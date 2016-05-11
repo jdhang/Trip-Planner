@@ -124,11 +124,14 @@ body {
 
 .navbar {
   background-color: #CF6766;
-  border-bottom: 5px solid #8EAEBD; }
+  border-bottom: 5px solid #CF6766; }
   .navbar a, .navbar li > a {
-    color: #FFF; }
+    color: #FFF;
+    transition: all 0.3s ease-out; }
     .navbar a:hover, .navbar li > a:hover {
-      background-color: #c3403f; }
+      background-color: #c3403f;
+      box-shadow: 0 5px #8EAEBD;
+      transition: all 0.4s ease-out; }
 
 .trip_planner {
   overflow-y: auto; }

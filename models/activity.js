@@ -12,6 +12,15 @@ module.exports = function (db, Sequelize) {
     age_range: {
       type: Sequelize.STRING
     }
+  }, {
+    classMethods: {
+      findById: function (id) {
+        return this.findOne({ where: { id: id } })
+      },
+      findByName: function (name) {
+        return this.findOne({ where: { name: name } })
+      }
+    }
   })
 
   return Activity

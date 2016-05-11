@@ -34,6 +34,24 @@ module.exports = function (db, Sequelize) {
     location: {
       type: Sequelize.ARRAY(Sequelize.FLOAT)
     }
+  }, {
+    classMethods: {
+      findById: function (id) {
+        return this.findOne({ where: { id: id } })
+      }
+    },
+    instanceMethods: {
+      findSimilarState: function () {
+        return Place.findAll({
+          where: {
+            id: {
+              $ne: this.id
+            },
+            state: this.state
+          }
+        })
+      }
+    }
   })
 
   return Place

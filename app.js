@@ -2,7 +2,6 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const path = require('path')
 const swig = require('swig')
-const sass = require('node-sass-middleware')
 const logger = require('morgan')
 const router = require('./routes')
 const app = express()
@@ -28,15 +27,6 @@ app.use(express.static(path.join(__dirname, './bower_components')))
 app.use(logger('dev'))
 
 app.use(router)
-
-// sass handling
-app.use(
-  sass({
-    src: __dirname + '/assets', // where sass file are
-    dest: __dirname + '/public', // where css should go
-    debug: true
-  })
-)
 
 // error catching
 // catch 404, no routes

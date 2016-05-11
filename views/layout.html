@@ -7,18 +7,22 @@
     <meta name="author" content="">
 
     <!-- Bootstrap core CSS -->
-    <link href="../assets/stylesheets/style.scss" rel="stylesheet">
+    <link href="../public/stylesheets/style.css" rel="stylesheet">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCaI8oHm6wF4mZPFjGyK1rCjA3AInHCChg&sensor=true"></script>
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
 
-
-
-
     <script>
     function initialize_gmaps() {
+
+      // var map = new google.maps.Map(document.getElementById('map'), {
+      //     zoom: 13,
+      //     center: {lat: 51.501904, lng: -0.115871}
+      //   });
+
+
       // initialize new google maps LatLng object
       var myLatlng = new google.maps.LatLng(40.705189,-74.009209);
       // set the map options hash
@@ -38,10 +42,29 @@
       });
       // Add the marker to the map by calling setMap()
       marker.setMap(map);
+
+
+      function setMaps(){
+      var test=0;
+      if (!test) {
+        var transitLayer = new google.maps.TransitLayer();
+        transitLayer.setMap(map);
+        test=1;
+      }
+      else {
+        transitLayer.setMap(null);
+        test=0;
+      }
+      }
+      return map; 
      }
+
+
 
     $(document).ready(function() {
         initialize_gmaps();
+        hideAllDivs();
+        $("#menuSchedule").slideDown('fast');
     });
     </script>
 
@@ -72,74 +95,218 @@
 
     <div id="map-canvas"></div>
   
-  <div class="posNeeded cbp-spmenu cbp-spmenu-right" id="cbp-spmenu-s2">
-    <div class="menubar">
-      <button  class= "btn-primary customButton" id="showRight"><i class="fa fa-chevron-right"></i></button>
-      <button  class= "btn-primary customButton" id="showSchedule"><i class="fa fa-home"></i></button>
-      <button  class= "btn-primary customButton" id="showHotel"><i class="fa fa-bed"></i></button>
-      <button  class= "btn-primary customButton" id="showRestaurant"><i class="fa fa-cutlery"></i></button>
-      <button  class= "btn-primary customButton" id="showActivities"><i class="fa fa-camera-retro"></i></button>
-      <button  class= "btn-primary customButton" id="showFun"><i class="fa fa-bolt"></i></button>
-    </div>
-    <div class="david">
+    <div class="posNeeded cbp-spmenu cbp-spmenu-right" id="cbp-spmenu-s2">
+      <div class="menubar">
+        <button  class= "btn-primary customButton" id="showRight"><i class="fa fa-chevron-right"></i></button>
+        <button  class= "btn-primary customButton" id="showSchedule"><i class="fa fa-home"></i></button>
+        <button  class= "btn-primary customButton" id="showHotel"><i class="fa fa-bed"></i></button>
+        <button  class= "btn-primary customButton" id="showRestaurant"><i class="fa fa-cutlery"></i></button>
+        <button  class= "btn-primary customButton" id="showActivities"><i class="fa fa-camera-retro"></i></button>
+        <button  class= "btn-primary customButton" id="showFun"><i class="fa fa-bolt"></i></button>
+      </div>
+      <div class="david">
+        <div id="menuSchedule">
+        <div class="day-header">Itinerary</div>
 
-      <div class="day-header">Itinerary</div>
-
-        <button type="button" class="day-button" data-toggle="collapse" data-target="#demo1">Day 1</button>
-        <div id="demo1" class="collapse day-data">
-          <div class="weather"><i class="fa fa-sun-o"></i>  49°
+          <button type="button" class="day-button" data-toggle="collapse" data-target="#demo1">Day 1</button>
+          <div id="demo1" class="collapse day-data">
+            <div class="weather"><i class="fa fa-sun-o"></i>  49°</div>
+            <div class="day-to-day">Hotel</div>
+            <ul>
+              <li class="day-list">DoubleTree</li>
+            </ul>
+            <div class="day-to-day">Restaurants</div>
+            <ul>
+              <li class="day-list">Lenny's</li>
+              <li class="day-list">Roti</li>
+            </ul>
+            <div class="day-to-day">Activities</div>
+            <ul>
+              <li class="day-list">Shopping</li>
+              <li class="day-list">Sightseeing</li>
+            </ul>
           </div>
-          <div class="day-to-day">Hotel</div>
-          <ul>
-            <li class="day-list">DoubleTree</li>
-          </ul>
-          <div class="day-to-day">Restaurants</div>
-          <ul>
-            <li class="day-list">Lenny's</li>
-            <li class="day-list">Roti</li>
-          </ul>
-          <div class="day-to-day">Activities</div>
-          <ul>
-            <li class="day-list">Shopping</li>
-            <li class="day-list">Sightseeing</li>
-          </ul>
-        </div>
 
-        <button type="button" class="day-button" data-toggle="collapse" data-target="#demo2">Day 2</button>
-         <div id="demo2" class="collapse day-data">
-          <div class="weather"><i class="fa fa-cloud"></i>  55°
+          <button type="button" class="day-button" data-toggle="collapse" data-target="#demo2">Day 2</button>
+           <div id="demo2" class="collapse day-data">
+            <div class="weather"><i class="fa fa-cloud"></i>  55°
+            </div>
+            <div class="day-to-day">Hotel</div>
+            <ul>
+              <li class="day-list">Hilton</li>
+            </ul>
+            <div class="day-to-day">Restaurants</div>
+            <ul>
+              <li class="day-list">Justino's</li>
+              <li class="day-list">PF Chang's</li>
+            </ul>
+            <div class="day-to-day">Activities</div>
+            <ul>
+              <li class="day-list">Sleep</li>
+              <li class="day-list">Nightclub</li>
+            </ul>
           </div>
-          <div class="day-to-day">Hotel</div>
-          <ul>
-            <li class="day-list">Hilton</li>
-          </ul>
-          <div class="day-to-day">Restaurants</div>
-          <ul>
-            <li class="day-list">Justino's</li>
-            <li class="day-list">PF Chang's</li>
-          </ul>
-          <div class="day-to-day">Activities</div>
-          <ul>
-            <li class="day-list">Sleep</li>
-            <li class="day-list">Nightclub</li>
-          </ul>
+          <button type="button" class="day-button" data-toggle="collapse" data-target="#demo3">Day 3</button>
+          <div id="demo3" class="collapse day-data">
+            Day 3 Activities
+          </div>
+
+          <button type="button" class="day-button">Add another day!</button>
         </div>
 
-        <button type="button" class="day-button" data-toggle="collapse" data-target="#demo3">Day 3</button>
-        <div id="demo3" class="collapse day-data">
-          Day 3 Activities
+        <div id="menuHotel"></div>
+
+        <div id="menuRestaurant">
+          <div class="day-header">Restaurant</div>
+
+          <button type="button" class="day-button" data-toggle="collapse" data-target="#demo1">Day 1</button>
+          <div id="demo1" class="collapse day-data">
+            <div class="weather"><i class="fa fa-sun-o"></i>  49°
+            </div>
+            <div class="day-to-day">Hotel</div>
+            <ul>
+              <li class="day-list">DoubleTree</li>
+            </ul>
+            <div class="day-to-day">Restaurants</div>
+            <ul>
+              <li class="day-list">Lenny's</li>
+              <li class="day-list">Roti</li>
+            </ul>
+            <div class="day-to-day">Activities</div>
+            <ul>
+              <li class="day-list">Shopping</li>
+              <li class="day-list">Sightseeing</li>
+            </ul>
+          </div>
+
+          <button type="button" class="day-button" data-toggle="collapse" data-target="#demo2">Day 2</button>
+           <div id="demo2" class="collapse day-data">
+            <div class="weather"><i class="fa fa-cloud"></i>  55°
+            </div>
+            <div class="day-to-day">Hotel</div>
+            <ul>
+              <li class="day-list">Hilton</li>
+            </ul>
+            <div class="day-to-day">Restaurants</div>
+            <ul>
+              <li class="day-list">Justino's</li>
+              <li class="day-list">PF Chang's</li>
+            </ul>
+            <div class="day-to-day">Activities</div>
+            <ul>
+              <li class="day-list">Sleep</li>
+              <li class="day-list">Nightclub</li>
+            </ul>
+          </div>
+
+          <button type="button" class="day-button" data-toggle="collapse" data-target="#demo3">Day 3</button>
+          <div id="demo3" class="collapse day-data">
+            Day 3 Activities
+          </div>
+
+          <button type="button" class="day-button">Add another day!</button>  
         </div>
+      
+      <div id="menuActivities">
+      <div class="trip_planner row">
 
-        <button type="button" class="day-button">Add another day!</button>
+       <div class="row">
 
+         <h1 class="selected-title">Activities</h1>
+
+         <div class="selected col-lg-12 col-md-12 col-sm-12">
+
+           <div class="col-lg-5 col-md-5 col-sm-5">
+             <img src="http://placehold.it/300x300" class="img-responsive" />
+           </div>
+
+           <div class="col-lg-7 col-md-7 col-sm-7">
+             <div class="row">
+
+               <div class="col-lg-12 col-md-12 col-sm-6 info">
+                 <p class="heading">Address:</p>
+                 <p>{{ activity.place.address }}</p>
+                 <p>{{ activity.place.city }}, {{ activity.place.state }}</p>
+                 <p>{{ activity.place.phone }}</p>
+               </div>
+               <div class="col-lg-12 col-md-12 col-sm-6 info">
+                 <p class="heading">Age Range:</p>
+                 <p>{{ activity.age_range }}</p>
+               </div>
+
+             </div>
+           </div>
+         </div>
+       </div>
+
+       <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+         {% for activity in activities %}
+         <div class="panel panel-default">
+           <div class="panel-heading" role="tab" id="heading{{ activity.id }}">
+             <h4 class="panel-title">
+               <a class="collapsed"
+                  role="button"
+                  data-toggle="collapse"
+                  data-parent="#accordion"
+                  href="#collapse{{ activity.id }}"
+                  aria-expanded="false"
+                  aria-controls="collapse{{ activity.id }}">
+                 {{ activity.name }}
+               </a>
+             </h4>
+           </div>
+           <div id="collapse{{ activity.id }}"
+                class="panel-collapse collapse"
+                role="tabpanel"
+                 aria-labelledby="heading{{ activity.id }}">
+             <div class="panel-body info">
+               <div class="row">
+                 <div class="col-lg-6">
+                   <p class="heading-small">Address:</p>
+                   <p>{{ activity.place.address }}</p>
+                   <p>{{ activity.place.city }}, {{ activity.place.state }}</p>
+                   <p>{{ activity.place.phone }}</p>
+                 </div>
+                 <div class="col-lg-6">
+                   <p class="heading-small">Age Range:</p>
+                   <p>{{ activity.age_range }}</p>
+                 </div>
+               </div>
+             </div>
+           </div>
+         </div>
+         {% endfor %}
+       </div>
+
+       <div class="col-sm-12">
+         <div class="social">
+           <ul class="list-unstyled">
+             <li>
+               <a href="#">
+                 <i class="fa fa-facebook-official"></i>
+               </a>
+             </li>
+             <li>
+               <a href="#">
+                 <i class="fa fa-twitter-square"></i>
+               </a>
+             </li>
+             <li>
+               <a href="#">
+                 <i class="fa fa-google-plus-square"></i>
+               </a>
+             </li>
+           </ul>
+         </div>
+       </div>
+      </div>
+      <div id="menuFun">
+        <button  class= "btn-primary customButton" id="showTrain"><i class="fa fa-chevron-right"></i></button>
+      </div>
+
+      </div>
     </div>
   </div>
-
-  <div id="menuSchedule">Test One</div>
-  <div id="menuHotel">Test One</div>
-  <div id="menuRestaurants">Test One</div>
-  <div id="menuActivities">Test One</div>
-  <div id="menuFun">Test One</div>
 
   <script src="../node_modules/desandro-classie/classie.js"></script>
   <script>
@@ -156,7 +323,17 @@ var menuRight = document.getElementById( 'cbp-spmenu-s2' ),
     showRestaurant = document.getElementById( 'showRestaurant' ),
     showActivities = document.getElementById( 'showActivities' ),
     showFun = document.getElementById( 'showFun' ),
+    showTrain = document.getElementById( 'showTrain' ),
     body = document.body;
+
+function hideAllDivs() {
+  $("#menuRight").hide();
+  $("#menuSchedule").hide();
+  $("#menuHotel").hide();
+  $("#menuRestaurant").hide();
+  $("#menuActivities").hide();
+  $("#menuFun").hide();
+}
 
 showRight.onclick = function() {
   classie.toggle( menuRight, 'cbp-spmenu-open' );
@@ -164,23 +341,32 @@ showRight.onclick = function() {
 };
 
 showSchedule.onclick = function() {
-  classie.toggle( menuSchedule, 'cbp-spmenu-open' );
+  hideAllDivs();
+  $("#menuSchedule").slideDown('slow');
 };
 
 showHotel.onclick = function() {
-  classie.toggle( menuHotel, 'cbp-spmenu-open' );
+  hideAllDivs();
+  $("#menuHotel").slideDown('slow');
 };
 
 showRestaurant.onclick = function() {
-  classie.toggle( menuRestaurant, 'cbp-spmenu-open' );
+  hideAllDivs();
+  $("#menuRestaurant").slideDown('fast');
 };
 
 showActivities.onclick = function() {
-  classie.toggle( menuActivities, 'cbp-spmenu-open' );
+  hideAllDivs();
+  $("#menuActivities").slideDown('slow');
 };
 
 showFun.onclick = function() {
-  classie.toggle( menuFun, 'cbp-spmenu-open' );
+  hideAllDivs();
+  $("#menuFun").slideDown('slow');
+};
+
+showTrain.onclick = function() {
+  map.setMaps();
 };
 
 function disableOther( button ) {

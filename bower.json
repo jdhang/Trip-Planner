@@ -1,0 +1,21 @@
+{
+  "name": "trip_planner",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Jason Hang <dev.jdhang@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/jdhang/Trip-Planner",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "font-awesome": "^4.6.2",
+    "bootstrap": "^3.3.6"
+  }
+}

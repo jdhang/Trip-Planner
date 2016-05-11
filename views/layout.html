@@ -7,11 +7,14 @@
     <meta name="author" content="">
 
     <!-- Bootstrap core CSS -->
-    <link href="/stylesheets/style.css" rel="stylesheet">
+    <link href="../assets/stylesheets/style.scss" rel="stylesheet">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCaI8oHm6wF4mZPFjGyK1rCjA3AInHCChg&sensor=true"></script>
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+
+
 
 
     <script>
@@ -46,8 +49,7 @@
   </head>
 
   <body>
-
-    <div class="navbar navbar-fixed-top navbar-inverse" role="navigation">
+    <div class="navbar navbar-fixed-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#nav-items">
@@ -67,66 +69,126 @@
         </div>
       </div>
     </div>
-  
+
     <div id="map-canvas"></div>
   
-  <div class="row" id="menubar">
-    <div class="col-sm-4">
-      <div class="panel panel-default">
-        <div class="panel-body" id="lookup">
-          <div class="lookupHeader">Hotels</div>
-          <select class="lookupHeader" class="dropped">
-            <option value="placeholder">Placeholder</option>
-            <option value="placeholder">Placeholder</option>
-            <option value="placeholder">Placeholder</option>
-          </select>
-          <button class="plusBtn">+</button>
-          <div class="lookupHeader">Restaurants</div>
-          <select class="lookupHeader" class="dropped">
-            <option value="placeholder">Placeholder</option>
-            <option value="placeholder">Placeholder</option>
-            <option value="placeholder">Placeholder</option>
-          </select>
-          <button class="plusBtn">+</button>
-          <div class="lookupHeader">Activities</div>
-          <select class="lookupHeader" class="dropped">
-            <option value="placeholder">Placeholder</option>
-            <option value="placeholder">Placeholder</option>
-            <option value="placeholder">Placeholder</option>
-          </select>
-          <button class="plusBtn">+</button>
+  <div class="posNeeded cbp-spmenu cbp-spmenu-right" id="cbp-spmenu-s2">
+    <div class="menubar">
+      <button  class= "btn-primary customButton" id="showRight"><i class="fa fa-chevron-right"></i></button>
+      <button  class= "btn-primary customButton" id="showSchedule"><i class="fa fa-home"></i></button>
+      <button  class= "btn-primary customButton" id="showHotel"><i class="fa fa-bed"></i></button>
+      <button  class= "btn-primary customButton" id="showRestaurant"><i class="fa fa-cutlery"></i></button>
+      <button  class= "btn-primary customButton" id="showActivities"><i class="fa fa-camera-retro"></i></button>
+      <button  class= "btn-primary customButton" id="showFun"><i class="fa fa-bolt"></i></button>
+    </div>
+    <div class="david">
+
+      <div class="day-header">Itinerary</div>
+
+        <button type="button" class="day-button" data-toggle="collapse" data-target="#demo1">Day 1</button>
+        <div id="demo1" class="collapse day-data">
+          <div class="weather"><i class="fa fa-sun-o"></i>  49°
+          </div>
+          <div class="day-to-day">Hotel</div>
+          <ul>
+            <li class="day-list">DoubleTree</li>
+          </ul>
+          <div class="day-to-day">Restaurants</div>
+          <ul>
+            <li class="day-list">Lenny's</li>
+            <li class="day-list">Roti</li>
+          </ul>
+          <div class="day-to-day">Activities</div>
+          <ul>
+            <li class="day-list">Shopping</li>
+            <li class="day-list">Sightseeing</li>
+          </ul>
         </div>
-      </div>
-      <div class="panel panel-default" id="dateShower">
-        <div class="panel-body">Day 2</div>
-        <button class="redBtnOne">x</button>
-      </div>
-      <div class="panel panel-default" id="dateSelector">
-        <button class="dateBtn">1</button>
-        <button class="dateBtn">2</button>
-        <button class="dateBtn">3</button>
-        <button class="dateBtn">+</button>
-      </div>
-      <div class="panel panel-default" id ="bottomPanel">
-        <div class="panel-body">
-          <div class="lookupHeader">Hotels</div>
-          <div class="lookupHeaderr">Andaz Wall Street</div>
-          <button class="redBtn">x</button>
-          <div class="lookupHeader">Restaurants</div>
-          <div class="lookupHeaderr">Lenny's</div>
-          <button class="redBtn">x</button>
-          <div class="lookupHeaderr">Roti</div>
-          <button class="redBtn">x</button>
-          <div class="lookupHeader">Activities</div>
-          <div class="lookupHeaderr">Ground Zero</div>
-          <button class="redBtn">x</button>
-          <div class="lookupHeaderr">Suth Street Seaport</div>
-          <button class="redBtn">x</button>
+
+        <button type="button" class="day-button" data-toggle="collapse" data-target="#demo2">Day 2</button>
+         <div id="demo2" class="collapse day-data">
+          <div class="weather"><i class="fa fa-cloud"></i>  55°
+          </div>
+          <div class="day-to-day">Hotel</div>
+          <ul>
+            <li class="day-list">Hilton</li>
+          </ul>
+          <div class="day-to-day">Restaurants</div>
+          <ul>
+            <li class="day-list">Justino's</li>
+            <li class="day-list">PF Chang's</li>
+          </ul>
+          <div class="day-to-day">Activities</div>
+          <ul>
+            <li class="day-list">Sleep</li>
+            <li class="day-list">Nightclub</li>
+          </ul>
         </div>
-      </div>
+
+        <button type="button" class="day-button" data-toggle="collapse" data-target="#demo3">Day 3</button>
+        <div id="demo3" class="collapse day-data">
+          Day 3 Activities
+        </div>
+
+        <button type="button" class="day-button">Add another day!</button>
+
     </div>
   </div>
 
+  <div id="menuSchedule">Test One</div>
+  <div id="menuHotel">Test One</div>
+  <div id="menuRestaurants">Test One</div>
+  <div id="menuActivities">Test One</div>
+  <div id="menuFun">Test One</div>
+
+  <script src="../node_modules/desandro-classie/classie.js"></script>
+  <script>
+
+var menuRight = document.getElementById( 'cbp-spmenu-s2' ),
+    menuSchedule = document.getElementById( 'menuSchedule' ),
+    menuHotel = document.getElementById( 'menuHotel' ),
+    menuRestaurant = document.getElementById( 'menuRestaurant' ),
+    menuActivities = document.getElementById( 'menuActivities' ),
+    menuFun = document.getElementById( 'menuFun' ),
+    showRight = document.getElementById( 'showRight' ),
+    showSchedule = document.getElementById( 'showSchedule' ),
+    showHotel = document.getElementById( 'showHotel' ),
+    showRestaurant = document.getElementById( 'showRestaurant' ),
+    showActivities = document.getElementById( 'showActivities' ),
+    showFun = document.getElementById( 'showFun' ),
+    body = document.body;
+
+showRight.onclick = function() {
+  classie.toggle( menuRight, 'cbp-spmenu-open' );
+  disableOther( 'showRight' );
+};
+
+showSchedule.onclick = function() {
+  classie.toggle( menuSchedule, 'cbp-spmenu-open' );
+};
+
+showHotel.onclick = function() {
+  classie.toggle( menuHotel, 'cbp-spmenu-open' );
+};
+
+showRestaurant.onclick = function() {
+  classie.toggle( menuRestaurant, 'cbp-spmenu-open' );
+};
+
+showActivities.onclick = function() {
+  classie.toggle( menuActivities, 'cbp-spmenu-open' );
+};
+
+showFun.onclick = function() {
+  classie.toggle( menuFun, 'cbp-spmenu-open' );
+};
+
+function disableOther( button ) {
+  if( button !== 'showRight' ) {
+    classie.toggle( showRight, 'disabled' );
+  }
+}
+  </script>
 
   </body>
 </html>

@@ -17,7 +17,7 @@ swig.setDefaults({ cache: false })
 
 // set up parsing ofr request body
 app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.urlencoded({ extended: true }))
 
 // set up static handling
 app.use(express.static(path.join(__dirname, './public')))

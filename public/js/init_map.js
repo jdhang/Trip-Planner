@@ -9,6 +9,7 @@ function initialize_gmaps() {
   };
   // get the maps div's HTML obj
   var map_canvas_obj = document.getElementById("map-canvas");
+  console.log(map_canvas_obj)
   // initialize a new Google Map with the options
   var map = new google.maps.Map(map_canvas_obj, mapOptions);
   // Add the marker to the map
@@ -22,4 +23,8 @@ function initialize_gmaps() {
 
 $(document).ready(function () {
   initialize_gmaps()
+ $("[data-toggle]").click(function() {
+    var toggle_el = $(this).data("toggle");
+    $(toggle_el).toggleClass("open-sidebar");
+  })
 })

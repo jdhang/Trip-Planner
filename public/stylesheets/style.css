@@ -1,16 +1,31 @@
 /*index css*/
+/* $main_color: #1A2930; */
+* {
+  font-family: 'Raleway', 'Helvetica', san-serif; }
+
 html, body {
   width: 100%;
+  background-color: #031424; }
+
+html, body, .container-fluid, .row, .map {
   height: 100%; }
 
 body {
   padding-top: 50px; }
 
+/* #map-canvas { */
+/*   width: $map_width; */
+/*   float:left; */
+/*   height: 100%; */
+/*   position: relative; */
+/* } */
 #map-canvas {
-  width: 65%;
-  float: left;
+  padding: 0;
   height: 100%;
-  position: relative; }
+  width: 100%;
+  height: calc(100% - 0px);
+  border-right: 5px solid #8EAEBD;
+  overflow-y: hidden; }
 
 #menubar {
   background-color: red;
@@ -107,5 +122,72 @@ body {
   border: none;
   vertical-align: middle; }
 
-.form-control {
-  border-radius: 0px; }
+.navbar {
+  background-color: #CF6766;
+  border-bottom: 5px solid #8EAEBD; }
+  .navbar a, .navbar li > a {
+    color: #FFF; }
+    .navbar a:hover, .navbar li > a:hover {
+      background-color: #c3403f; }
+
+.trip_planner {
+  overflow-y: auto; }
+  .trip_planner h1 {
+    color: #FFF; }
+
+/*   width: 100% - $map_width; */
+/*   float: left; */
+/*   height: 100%; */
+/* } */
+.clearfix {
+  content: " ";
+  display: table;
+  clear: both; }
+
+.social {
+  text-align: center; }
+  .social li {
+    display: inline-block;
+    margin: 0 5px; }
+    .social li a {
+      color: #FFF;
+      font-size: 42px; }
+
+.selected-title {
+  margin: 20px 0 10px 5%; }
+
+.selected {
+  margin: 0 auto;
+  padding: 20px 5%;
+  color: #fff; }
+
+.heading {
+  font-size: 120%; }
+
+.heading-small {
+  font-size: 110%; }
+
+.info-area {
+  padding: 15px;
+  color: #333;
+  background-color: #f5f5f5; }
+  .info-area p {
+    margin-top: 0px;
+    margin-bottom: 0px; }
+
+.info + .info {
+  margin-top: 10px; }
+
+.info p {
+  margin-top: 0px;
+  margin-bottom: 0px; }
+
+.panel {
+  margin-top: 20px;
+  width: 90%; }
+
+.yellow {
+  color: #f1c40f; }
+
+.green {
+  color: #2ecc71; }

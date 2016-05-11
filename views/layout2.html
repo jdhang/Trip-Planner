@@ -3,20 +3,27 @@
 <html lang="en">
   <head>
     <title>{% block title %}Trip Planner{% endblock %}</title>
+    <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
     <link href="/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <link href="/stylesheets/style.css" rel="stylesheet">
   </head>
   <body>
     {% include 'navbar.html' %}
+    <div class="container-fluid">
+      <div class="row">
 
-    <div class="container content">
-      {% block content %}{% endblock %}
-    </div>
-    <hr/>
-    <div id="footer" class="container text-muted">
-      Trip Planner by D - J
-    </div>
+        <div class="col-lg-8 col-md-12 col-sm-12 map">
+          <div id="map-canvas"></div>
+        </div>
 
+        <div class="col-lg-4 col-md-12 col-sm-12">
+          {% block content %}{% endblock %}
+        </div>
+
+
+      </div>
+    </div>
 
     <script src="/jquery/dist/jquery.min.js"></script>
     <script src="/bootstrap/dist/js/bootstrap.min.js"></script>

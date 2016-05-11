@@ -1,0 +1,102 @@
+{% extends 'layout2.html' %}
+
+{% block content %}
+
+<div class="trip_planner row">
+
+  <div class="row">
+
+    <h1 class="selected-title">Restaurants</h1>
+
+    <div class="selected col-lg-12 col-md-12 col-sm-12">
+
+      <div class="col-lg-5 col-md-5 col-sm-5">
+        <img src="http://placehold.it/300x300" class="img-responsive" />
+      </div>
+
+      <div class="col-lg-7 col-md-7 col-sm-7">
+        <div class="row">
+
+          <div class="col-lg-12 col-md-12 col-sm-6 info">
+            <p class="heading">Address:</p>
+            <p>{{ restaurant.place.address }}</p>
+            <p>{{ restaurant.place.city }}, {{ restaurant.place.state }}</p>
+            <p>{{ restaurant.place.phone }}</p>
+          </div>
+          <div class="col-lg-12 col-md-12 col-sm-6 info">
+            <p class="heading">Cuisine:</p>
+            <p>{{ restaurant.cuisine }}</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+    {% for restaurant in restaurants %}
+    <div class="panel panel-default">
+      <div class="panel-heading" role="tab" id="heading{{ restaurant.id }}">
+        <h4 class="panel-title">
+          <a class="collapsed"
+             role="button"
+             data-toggle="collapse"
+             data-parent="#accordion"
+             href="#collapse{{ restaurant.id }}"
+             aria-expanded="false"
+             aria-controls="collapse{{ restaurant.id }}">
+            {{ restaurant.name }}
+            <div class="pull-right">
+              {% for i in Array.prototype.constructor.call(null, restaurant.price) %}
+                <i class="fa fa-usd green"></i>
+              {% endfor %}
+            </div>
+          </a>
+        </h4>
+      </div>
+      <div id="collapse{{ restaurant.id }}"
+           class="panel-collapse collapse"
+           role="tabpanel"
+            aria-labelledby="heading{{ restaurant.id }}">
+        <div class="panel-body info">
+          <div class="row">
+            <div class="col-lg-6">
+              <p class="heading-small">Address:</p>
+              <p>{{ restaurant.place.address }}</p>
+              <p>{{ restaurant.place.city }}, {{ restaurant.place.state }}</p>
+              <p>{{ restaurant.place.phone }}</p>
+            </div>
+            <div class="col-lg-6">
+              <p class="heading-small">Cuisine:</p>
+              <p>{{ restaurant.cuisine }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  <div class="col-sm-12">
+    <div class="social">
+      <ul class="list-unstyled">
+        <li>
+          <a href="#">
+            <i class="fa fa-facebook-official"></i>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="fa fa-twitter-square"></i>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="fa fa-google-plus-square"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+{% endblock %}
